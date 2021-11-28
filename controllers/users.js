@@ -55,8 +55,6 @@ const login = (req, res, next) => {
         httpOnly: true,
       })
         .status(200).send({ message: 'Авторизация успешна!' });
-      // выслать токен напрямую
-      // res.send({ token });
     })
     .catch((err) => {
       next(new AuthorizationError(`Произошла ошибка: ${err.message}`));

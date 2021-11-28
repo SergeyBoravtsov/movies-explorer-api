@@ -11,7 +11,6 @@ const router = require('./routes');
 const auth = require('./middlewares/auth');
 const centralErrorHandler = require('./middlewares/error-handler');
 const { login, createUser } = require('./controllers/users');
-// const { URL_REGEX } = require('./utils');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 // Защита от DDoS-атак (ограничение количества запросов в единицу времени)
@@ -20,12 +19,12 @@ const limiter = rateLimit({
   max: 100,
 });
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3000, MONGO_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
 
 const app = express();
 
 // подключаемся к серверу mongo
-mongoose.connect('mongodb://localhost:27017/mestodb', {
+mongoose.connect(MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
