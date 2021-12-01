@@ -11,7 +11,7 @@ const getMovies = (req, res, next) => {
       }
       res.status(200).send(movies);
     })
-    .catch((err) => next(err));
+    .catch(next);
 };
 
 const createMovie = (req, res, next) => {
@@ -28,7 +28,7 @@ const createMovie = (req, res, next) => {
     .then((movie) => {
       res.send(movie);
     })
-    .catch((err) => next(err));
+    .catch(next);
 };
 
 const deleteMovie = (req, res, next) => {
@@ -39,16 +39,16 @@ const deleteMovie = (req, res, next) => {
       }
 
       if (movie.owner.toString() !== req.user._id) {
-        throw new ForbiddenError('У вас нет прав на удаление фильма');
+        throw new ForbiddenError('У вас нет прав на удаление этого фильма');
       }
 
       movie.remove()
         .then(() => {
           res.send({ message: 'Фильм успешно удалён' });
         })
-        .catch((err) => next(err));
+        .catch(next);
     })
-    .catch((err) => next(err));
+    .catch(next);
 };
 
 module.exports = {

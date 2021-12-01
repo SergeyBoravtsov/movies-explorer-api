@@ -30,8 +30,9 @@ const createUser = (req, res, next) => {
       }
       if (err.name === 'MongoServerError' && err.code === 11000) {
         next(new ConflictError('Пользователь с таким email уже есть'));
+      } else {
+        next(err);
       }
-      next(err);
     });
 };
 
@@ -72,8 +73,9 @@ const viewProfile = (req, res, next) => User.findById(req.user._id)
   .catch((err) => {
     if (err.name === 'CastError') {
       next(new BadRequestError('Невалидный id'));
+    } else {
+      next(err);
     }
-    next(err);
   });
 
 // обновить профиль
@@ -90,7 +92,11 @@ const updateProfile = (req, res, next) => User.findByIdAndUpdate(
     if (err.name === 'CastError') {
       next(new BadRequestError('Bad Request'));
     }
-    next(err);
+    if (err.name === 'MongoServerError' && err.code === 11000) {
+      next(new ConflictError('Пользователь с таким email уже есть'));
+    } else {
+      next(err);
+    }
   });
 
 const logout = (req, res) => {
