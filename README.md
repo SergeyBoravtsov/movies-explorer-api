@@ -2,7 +2,8 @@
 ## Описание
 
 Дипломный проект, выполненный при обучении на [Яндекс.Практикуме](https://praktikum.yandex.ru/)
-по специальности Веб-разработчик.
+по специальности Веб-разработчик. Фронтенд проекта находится в репозитории
+[movies-explorer-frontend](https://github.com/SergeyBoravtsov/movies-explorer-frontend.git)/
 
 ***
 
