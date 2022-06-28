@@ -30,4 +30,4 @@
 
 ***
 - Публичный IP-адрес сервера: 178.154.240.244
-- Домен: https://movies-explorer-api-sergeyboravtsov.vercel.app/
+- Домен: https://movies-sergeyboravtsov-api.herokuapp.com/
