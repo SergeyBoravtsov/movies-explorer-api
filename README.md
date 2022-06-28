@@ -30,5 +30,4 @@
 
 ***
 - Публичный IP-адрес сервера: 178.154.240.244
-- Домен: http://api.sergbor.movies.nomoredomains.rocks
-(может быть недоступен в случае, если истёк срок гранта на Яндекс Облаке)
+- Домен: https://movies-explorer-api-sergeyboravtsov.vercel.app/
