@@ -20,7 +20,7 @@ mongoose.connect(MONGO_URL, {
 });
 
 app.use(requestLogger);
-app.use(cors());
+app.use(cors({origin: true}));
 app.use(limiter);
 app.use(express.json()); // используем встроенный парсер express вместо body-parser
 app.use(helmet());
